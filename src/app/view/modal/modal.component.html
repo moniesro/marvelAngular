@@ -18,9 +18,11 @@
                 <p>{{modalData.comics.available}}</p>
                 <h5 class="card-text">Titre of Comics : </h5>
                 <div *ngIf="modalData.comics.items">
-                  <div *ngFor="let comic of modalData.comics.items">
+                  <div *ngFor="let comic of modalData.comics.items; let i= index">
                     <ul class="list-group">
-                      <li class="list-group-item">{{comic.name}}</li>
+                      <div *ngIf="i<4">
+                        <li class="list-group-item">{{comic.name}}</li>
+                      </div>
                     </ul>
                   </div>
                 </div>
