@@ -28,17 +28,20 @@ export class CharactersComponent implements OnInit {
        console.log(response.data.total);
        this.attributionText = response.attributionText;
        this.characters = response.data.results;
-       console.log('nunmero: ' +this.characters.length);
+       console.log('numero: ' +this.characters.length);
      });
   }
 
-  show = (e) => {
+  show(character:object) {
     console.log('shooow');
     this.modalShow = true;
-    console.log(e);
-    this.modalData = e;
+    console.log(character);
+    this.modalData = character;
+  };
 
-
+  onCloseClick = (e) => {
+    console.log('onCloseclick');
+    this.modalShow = false;
   }
 
 }

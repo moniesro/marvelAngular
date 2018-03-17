@@ -1,3 +1,39 @@
-<p>
-  modal works!
-</p>
+<!-- Modal -->
+<div class="static-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">{{modalData.name}}</h3>
+        <button type="button" class="close" data-dismiss="modal" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card-block">
+                <p class="card-text">{{modalData.description}}</p>
+                <h5 class="card-text">Number of Comics : </h5>
+                <p>{{modalData.comics.available}}</p>
+                <h5 class="card-text">Titre of Comics : </h5>
+                <div *ngIf="modalData.comics.items">
+                  <div *ngFor="let comic of modalData.comics.items">
+                    <ul class="list-group">
+                      <li class="list-group-item">{{comic.name}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card-img-bottom">
+                <img class="card-img-top" src="{{modalData.thumbnail.path}}/portrait_fantastic.{{modalData.thumbnail.extension}}" alt="Card image cap">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

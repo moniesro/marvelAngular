@@ -23,8 +23,8 @@ export class MarvelService {
 
   getCharacters(): Observable<MarvelResponse<Character>> {
     let timeStamp = this._getTimeStamp();
-    console.log(this._marvelCharacterUrl + "offset="+ this._offset +"&ts=1" + "&apikey=" +this._publicKey +"&hash="+ this._hash);
-    return this.http.get<MarvelResponse<Character>>(this._marvelCharacterUrl + "offset="+ this._offset +"&ts=1" + "&apikey=" +this._publicKey +"&hash="+ this._hash )
+    //console.log(this._marvelCharacterUrl + "limit=22" +"&offset="+ this._offset +"&ts=1" + "&apikey=" +this._publicKey +"&hash="+ this._hash);
+    return this.http.get<MarvelResponse<Character>>(this._marvelCharacterUrl + "limit=22"+ "&offset="+ this._offset +"&ts=1" + "&apikey=" +this._publicKey +"&hash="+ this._hash )
       .pipe( res => {
         console.log('map services');
           return res;

@@ -1,15 +1,16 @@
 <div *ngIf="characters">
-  <div class="card-columns my-5">
+  <div class="card-columns ">
     <div *ngFor="let character of characters" class="card">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="{{character.thumbnail.path}}/portrait_fantastic.{{character.thumbnail.extension}}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title"(click)="show($event)">{{character.name}}</h5>
+          <a class="card-title"(click)="show(character)">{{character.name}}</a>
         </div>
       </div>
     </div>
     <div *ngIf="modalShow">
-      <app-modal [modalShow]="modalShow" [modalData]="modalData">
+      {{modalShow}}
+      <app-modal [modalShow]="modalShow" [modalData]="modalData" (onCloseClick)="onCloseClick($event)">
       </app-modal>
     </div>
   </div>
