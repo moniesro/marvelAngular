@@ -1,7 +1,7 @@
 /* Sticky footer styles
 -------------------------------------------------- */
 .footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
@@ -10,12 +10,26 @@
   background-color: #f5f5f5;
 }
 
+.header {
+  margin-top:5%;
+  margin-bottom: 5%;
+}
+
+.card{
+  margin-bottom: 3%;
+}
+
+.card-deck{
+  width: 100%;
+}
+
+
 
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-body > .container {
+/*body > .container {
   padding: 30px 15px 0;
 }
 
@@ -23,4 +37,4 @@ body > .container {
   padding-right: 15px;
   padding-left: 15px;
 }
-
+*/
