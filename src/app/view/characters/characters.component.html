@@ -4,6 +4,7 @@
   </div>
 </div>
 <div class="body">
+  <app-loader [loading]="loading"></app-loader>
   <div *ngIf="characters">
     <div class="card-deck">
 
@@ -26,7 +27,7 @@
     </div>
   </div>
 </div>
-<footer class="footer">
+<footer class="footer" *ngIf="!loading">
   <div class="container">
     <p class="text-muted"> {{attributionText}} </p>
   </div>

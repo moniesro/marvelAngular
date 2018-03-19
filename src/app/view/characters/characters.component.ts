@@ -19,6 +19,9 @@ export class CharactersComponent implements OnInit {
   modalShow: boolean;
   modalData: object;
 
+  //Attributes of loader
+  loading: boolean;
+
 
   constructor(private marvelService: MarvelService) {
     this.characters = [];
@@ -27,9 +30,12 @@ export class CharactersComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
+
      this.marvelService.getCharacters(this.limit, this.offset).subscribe( response => {
        this.attributionText = response.attributionText;
        this.characters = response.data.results;
+       this.loading = false;
      });
   }
 

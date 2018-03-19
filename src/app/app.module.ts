@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { CharactersComponent } from './view/characters/characters.component';
 import { MarvelService } from './services/marvel.service';
 import { ModalComponent } from './view/modal/modal.component';
+import { LoaderComponent } from './view/loader/loader.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CharactersComponent,
-    ModalComponent
+    ModalComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
