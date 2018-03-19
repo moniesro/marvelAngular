@@ -1,26 +1,28 @@
 <div class="row">
-  <div class="container header">
+  <div class="header">
     <img width="300" alt="Marvel Logo" src="//i.annihil.us/u/prod/misc/marvel.svg">
   </div>
 </div>
-<div *ngIf="characters">
-  <div class="card-deck">
+<div class="body">
+  <div *ngIf="characters">
+    <div class="card-deck">
 
       <div *ngFor="let character of characters">
 
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{character.thumbnail.path}}/portrait_fantastic.{{character.thumbnail.extension}}" alt="Card image cap">
-            <div class="card-body">
-              <button type="button" class="card-title btn btn-link"(click)="show(character)">{{character.name}}</button>
-            </div>
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{character.thumbnail.path}}/portrait_fantastic.{{character.thumbnail.extension}}" alt="Card image cap">
+          <div class="card-body">
+            <button type="button" class="card-title btn btn-link"(click)="show(character)">{{character.name}}</button>
           </div>
+        </div>
 
       </div>
 
-    <div *ngIf="modalShow">
-      {{modalShow}}
-      <app-modal [modalShow]="modalShow" [modalData]="modalData" (onCloseClick)="onCloseClick($event)">
-      </app-modal>
+      <div *ngIf="modalShow">
+        {{modalShow}}
+        <app-modal [modalShow]="modalShow" [modalData]="modalData" (onCloseClick)="onCloseClick($event)">
+        </app-modal>
+      </div>
     </div>
   </div>
 </div>

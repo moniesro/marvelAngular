@@ -13,6 +13,8 @@
 .header {
   margin-top:5%;
   margin-bottom: 5%;
+  line-height: 60px; /* Vertically center the text there */
+
 }
 
 .card{
@@ -22,6 +24,8 @@
 .card-deck{
   width: 100%;
 }
+
+
 
 
 

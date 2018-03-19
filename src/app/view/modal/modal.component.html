@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="static-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="exampleModalLongTitle">{{modalData.name}}</h3>
@@ -9,32 +9,77 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="card">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card-block">
-                <p class="card-text">{{modalData.description}}</p>
-                <h5 class="card-text">Number of Comics : </h5>
-                <p>{{modalData.comics.available}}</p>
-                <h5 class="card-text">Titre of Comics : </h5>
-                <div *ngIf="modalData.comics.items">
-                  <div *ngFor="let comic of modalData.comics.items; let i= index">
-                    <ul class="list-group">
-                      <div *ngIf="i<4">
-                        <li class="list-group-item">{{comic.name}}</li>
-                      </div>
-                    </ul>
+        <div class="row">
+          <div id="accordion" class="col-md-6">
+            <!-- Accordion card -->
+            <div class="card-block">
+              <!-- Card header -->
+              <div class="card-header" id="headingOne">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <h5 class="mb-0">
+                    Description <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </button>
+              </div>
+              <!-- Card body -->
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  {{modalData.description}}
+                </div>
+              </div>
+            </div>
+
+            <div class="card-block">
+              <!-- Card header -->
+              <div class="card-header" id="headingTwo">
+                <button class="btn btn-link collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <h5 class="mb-0">
+                    Number of Comics <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </button>
+              </div>
+              <!-- Card body -->
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  {{modalData.comics.available}}
+                </div>
+              </div>
+            </div>
+
+            <div class="card-block">
+              <!-- Card header -->
+              <div class="card-header" id="headingThree">
+                <button class="btn btn-link collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <h5 class="mb-0">
+                    Titre of Comics <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </button>
+              </div>
+              <!-- Card body -->
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                  <div *ngIf="modalData.comics.items">
+                    <div *ngFor="let comic of modalData.comics.items; let i= index">
+                      <ul class="list-group">
+                        <div *ngIf="i<3">
+                          <li class="list-group-item">{{comic.name}}</li>
+                        </div>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+          </div>
+          <!-- Image card -->
+          <div class="col-md-6">
               <div class="card-img-bottom">
-                <img class="card-img-top" src="{{modalData.thumbnail.path}}/portrait_fantastic.{{modalData.thumbnail.extension}}" alt="Card image cap">
+                <img class="card-img-top img-circle" src="{{modalData.thumbnail.path}}/portrait_fantastic.{{modalData.thumbnail.extension}}" alt="Card image cap">
               </div>
             </div>
           </div>
-        </div>
+
+
       </div>
     </div>
   </div>
