@@ -7,10 +7,27 @@
   z-index: 1050;
   overflow: hidden;
   outline: 0;
+
 }
 
+.modal-content{
+  max-width: 900px;
+  padding: 10px;
+  border-radius: 5px;
+
+}
 .card-header{
   border-bottom: 2px inset;
   padding: 1rem 1.5rem;
   background: 0 0;
+}
+
+.static-modal:before{
+  content: "";
+  position: fixed;
+  background-color: rgba(0,0,0,.8);
+  top:0;
+  left:0;
+  height:100%;
+  width: 100%;
 }
