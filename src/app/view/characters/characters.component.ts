@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MarvelService} from '../services/marvel.service';
-import {Character} from '../model/Character';
+import {MarvelService} from '../../services/marvel.service';
+import {Character} from '../../model/Character';
 
 @Component({
   selector: 'app-characters',
@@ -9,38 +9,45 @@ import {Character} from '../model/Character';
 })
 export class CharactersComponent implements OnInit {
 
+  //Attributes concerned of Marvel Response
   characters: Character[];
+  limit: number;
+  offset: number;
   attributionText: string;
 
+  //Attributes of modal
   modalShow: boolean;
   modalData: object;
 
 
   constructor(private marvelService: MarvelService) {
     this.characters = [];
+    this.limit = 22;
+    this.offset = 100;
   }
 
   ngOnInit() {
-
-     this.marvelService.getCharacters().subscribe( response => {
-       console.log('subscribe');
-       console.log(response.attributionText);
-       console.log(response.data.total);
+     this.marvelService.getCharacters(this.limit, this.offset).subscribe( response => {
        this.attributionText = response.attributionText;
        this.characters = response.data.results;
-       console.log('numero: ' +this.characters.length);
      });
   }
 
+  /*
+    Event of modal show
+   */
   show(character:object) {
-    console.log('shooow');
+    console.log('Show()');
     this.modalShow = true;
     console.log(character);
     this.modalData = character;
   };
 
+  /*
+    Close Modal
+   */
   onCloseClick = (e) => {
-    console.log('onCloseclick');
+    console.log('Close()');
     this.modalShow = false;
   }
 

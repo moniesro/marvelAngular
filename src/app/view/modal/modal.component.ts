@@ -17,10 +17,12 @@ export class ModalComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('modal');
     this.characterData = this.modalData;
   }
 
+  /*
+    Close modal emmiting to parent (character)
+   */
   close(){
     this.modalShow = false;
     this.onCloseClick.emit(this.modalShow); // emmiting the event.
