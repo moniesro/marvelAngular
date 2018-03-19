@@ -24,7 +24,12 @@
               <!-- Card body -->
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
-                  {{modalData.description}}
+                  <div *ngIf="modalData.description; else elseBlockDescription">
+                    {{modalData.description}}
+                  </div>
+                  <ng-template #elseBlockDescription>
+                    <p class="text-info"> The description for this character is not available. </p>
+                  </ng-template>
                 </div>
               </div>
             </div>
@@ -41,7 +46,12 @@
               <!-- Card body -->
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                  {{modalData.comics.available}}
+                  <div *ngIf="modalData.comics.available != 0; else elseBlockNComics">
+                    {{modalData.comics.available}}
+                  </div>
+                  <ng-template #elseBlockNComics>
+                    <p class="text-info"> This character doesn't have any comic available</p>
+                  </ng-template>
                 </div>
               </div>
             </div>
@@ -58,7 +68,7 @@
               <!-- Card body -->
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
-                  <div *ngIf="modalData.comics.items">
+                  <div *ngIf="modalData.comics.items.length > 0; else elseBlockComicsTitle">
                     <div *ngFor="let comic of modalData.comics.items; let i= index">
                       <ul class="list-group">
                         <div *ngIf="i<3">
@@ -67,6 +77,9 @@
                       </ul>
                     </div>
                   </div>
+                  <ng-template #elseBlockComicsTitle>
+                    <p class="text-info"> Any comic is available for this character. </p>
+                  </ng-template>
                 </div>
               </div>
             </div>
