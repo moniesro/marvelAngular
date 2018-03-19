@@ -9,3 +9,8 @@
   outline: 0;
 }
 
+.card-header{
+  border-bottom: 2px inset;
+  padding: 1rem 1.5rem;
+  background: 0 0;
+}
