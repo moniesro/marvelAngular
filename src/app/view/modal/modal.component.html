@@ -28,7 +28,7 @@
                     {{modalData.description}}
                   </div>
                   <ng-template #elseBlockDescription>
-                    <p class="text-info"> The description for this character is not available. </p>
+                    <p class="text-danger"> The description for this character is not available. </p>
                   </ng-template>
                 </div>
               </div>
@@ -39,7 +39,7 @@
               <div class="card-header" id="headingTwo">
                 <button class="btn btn-link collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   <h5 class="mb-0">
-                    Number of Comics <i class="fa fa-angle-down rotate-icon"></i>
+                    Number of comics <i class="fa fa-angle-down rotate-icon"></i>
                   </h5>
                 </button>
               </div>
@@ -50,7 +50,7 @@
                     {{modalData.comics.available}}
                   </div>
                   <ng-template #elseBlockNComics>
-                    <p class="text-info"> This character doesn't have any comic available</p>
+                    <p class="text-danger"> Content not available </p>
                   </ng-template>
                 </div>
               </div>
@@ -61,7 +61,7 @@
               <div class="card-header" id="headingThree">
                 <button class="btn btn-link collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                   <h5 class="mb-0">
-                    Titre of Comics <i class="fa fa-angle-down rotate-icon"></i>
+                    The first comics <i class="fa fa-angle-down rotate-icon"></i>
                   </h5>
                 </button>
               </div>
@@ -78,7 +78,7 @@
                     </div>
                   </div>
                   <ng-template #elseBlockComicsTitle>
-                    <p class="text-info"> Not comics availables. </p>
+                    <p class="text-danger"> Not available comics. </p>
                   </ng-template>
                 </div>
               </div>
