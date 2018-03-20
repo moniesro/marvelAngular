@@ -17,8 +17,8 @@ Go to the website : http://monica-esrodriguez.connect-hm.com:4200/
 
 This is a single-page web application built using Angular 5 as the front end. 
 
-When the character's page is loaded, a request will be sent to Marvel API to get response. This request send as parameters a limit,
-an offset and an orderBy(name) for filter the content. The returned information is stored into data structure and later displaying it (using angulars directives) 
+When the character's page is loaded, a request will be sent to Marvel API to get response. This request sends as parameters: the limit,
+the offset and the orderBy(name) for filter the content. The returned information is stored into data structure and later displaying it (using angulars directives) 
 on the page.
 While the Marvel API give a response, a loader is shown and when there is a response the loader disappear.
 Once you click on the characters name a 'pop-up'(modal) will appear with information about the character.
