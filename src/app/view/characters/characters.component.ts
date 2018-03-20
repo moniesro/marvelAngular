@@ -45,7 +45,7 @@ export class CharactersComponent implements OnInit {
   show(character:object) {
     console.log('Show()');
     this.modalShow = true;
-    console.log(character);
+    //console.log(character);
     this.modalData = character;
   };
 
