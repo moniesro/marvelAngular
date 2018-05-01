@@ -5,6 +5,7 @@
 /dist-server
 /tmp
 /out-tsc
+.webpack.json
 
 # dependencies
 /node_modules
@@ -44,6 +45,3 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Package
-package.json
-package-lock.json
