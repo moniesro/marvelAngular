@@ -6,6 +6,7 @@ import { CharactersComponent } from './view/characters/characters.component';
 import { MarvelService } from './services/marvel.service';
 import { ModalComponent } from './view/modal/modal.component';
 import { LoaderComponent } from './view/loader/loader.component';
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LoaderComponent } from './view/loader/loader.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule
   ],
   providers: [ MarvelService ],
   bootstrap: [ AppComponent ]

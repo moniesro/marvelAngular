@@ -25,6 +25,14 @@
         </app-modal>
       </div>
     </div>
+
+    <div
+    infiniteScroll
+    [infiniteScrollDistance]="1"
+    [infiniteScrollThrottle]="1000"
+    (scrolled)="onScroll()">
+    </div>
+
   </div>
 </div>
 <footer class="footer" *ngIf="!loading">
