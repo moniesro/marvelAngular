@@ -32,8 +32,6 @@ export class CharactersComponent implements OnInit{
 
   constructor(private marvelService: MarvelService) {
     this.characters = [];
-    //this.limit = 100;
-    //this.offset = 100;
   }
 
   ngOnInit() {
@@ -83,25 +81,6 @@ export class CharactersComponent implements OnInit{
           console.log(this.characters.length);
           this.loading = false;
         });
-      /*.do( response => {
-        this.attributionText = response.attributionText;
-        this.total = response.data.total;
-
-        let lastCharacter = this.characters.pop();
-        let newCharacters = [] = response.data.results;
-
-        if(lastCharacter != undefined && lastCharacter.id === newCharacters[newCharacters.length - 1].id){
-          this.finished = true; // en un do funciona
-        }
-
-        this.characters = this.characters.concat(newCharacters);
-        console.log(this.characters[this.characters.length - 1]);
-
-        this.offset += response.data.count;
-        console.log(this.characters.length);
-        this.loading = false;
-      })
-      .subscribe()*/
   }
 
   /*
