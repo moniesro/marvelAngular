@@ -4,7 +4,7 @@
   </div>
 </div>
 <div class="body">
-  <app-loader [loading]="loading"></app-loader>
+
   <div *ngIf="characters">
     <div class="card-deck">
 
@@ -27,12 +27,15 @@
     </div>
 
     <div
-    infiniteScroll
-    [infiniteScrollDistance]="1"
-    [infiniteScrollThrottle]="1000"
-    (scrolled)="onScroll()">
+      infiniteScroll
+      [infiniteScrollDistance]="0"
+      [infiniteScrollThrottle]="1000"
+      (scrolled)="onScroll()">
     </div>
+  </div>
 
+  <div>
+    <app-loader [loading]="loading"></app-loader>
   </div>
 </div>
 <footer class="footer" *ngIf="!loading">

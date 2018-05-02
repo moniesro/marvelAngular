@@ -35,26 +35,24 @@ export class CharactersComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.loading = true;
+    //this.loading = true;
     this.getCharacters(this.offset);
-
   }
 
   onScroll(){
     console.log('scrolled!!');
-
     this.getCharacters(this.offset);
   }
 
   getCharacters(offset:number) {
 
+    this.loading = true;
     if (this.finished) return;
 
     this.marvelService
       .getCharacters(this.limit, offset)
         .subscribe( response => {
 
-          this.loading = true;
           this.attributionText = response.attributionText;
           this.total = response.data.total;
 
