@@ -27,11 +27,12 @@ export class CharactersComponent implements OnInit{
   finished = false; //boolean when end of database is reached
   limit: number = 100;
   offset: number = 100;
- //count: number = 0; //number of times ->event scroll
+  totalCount: number;  //number of times ->event scroll
 
 
   constructor(private marvelService: MarvelService) {
     this.characters = [];
+    this.totalCount = this.offset;
   }
 
   ngOnInit() {
@@ -47,6 +48,12 @@ export class CharactersComponent implements OnInit{
   getCharacters(offset:number) {
 
     this.loading = true;
+
+    if(this.totalCount === this.total )
+    {
+      this.loading = false;
+      return;
+    }
     if (this.finished) return;
 
     this.marvelService
@@ -69,10 +76,12 @@ export class CharactersComponent implements OnInit{
             isCharacterFound = true;
           }
 
+
           if(!isCharacterFound)
           {
             this.characters = this.characters.concat(newCharacters);
             this.offset += response.data.count;
+            this.totalCount += response.data.count;
           }
 
           console.log(this.characters[this.characters.length - 1]);
