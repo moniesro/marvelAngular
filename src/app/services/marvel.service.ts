@@ -11,8 +11,6 @@ export class MarvelService {
   private _marvelCharacterUrl: string = "https://gateway.marvel.com/v1/public/";
   private _publicKey: string = "b99729a0b19b8d9f35e3578a51bb28a9";
   private _privateKey : string = "e10c5fd178394a24113eb008e4d58a4e60128fd1";
-  //private _offset : string = "100";
-  //private _limit : string = "22";
   private _hash : string = "a430f51e85e54db3b650f72f7cd97935";
 
   constructor(private http: HttpClient) { }
@@ -51,15 +49,6 @@ export class MarvelService {
           return res;
         }
       );
-  }
-
-  getPagesOfCharacters(total: number) : number{
-    const limit = 100;
-    let offset = 100;
-    let count = 1;
-    let range = 100;
-    let res = offset + range * (count - 1);
-    return res;
   }
 
 }

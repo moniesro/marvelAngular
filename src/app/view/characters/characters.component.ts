@@ -16,19 +16,17 @@ export class CharactersComponent implements OnInit{
   attributionText: string;
   total: number;
 
+  //Attributes concerned of API call
+  limit: number = 100;
+  offset: number = 100;
+  totalCount: number;  //number of times ->event scroll
+
   //Attributes of modal
   modalShow: boolean;
   modalData: object;
 
   //Attributes of loader
   loading: boolean;
-
-  //Attributes of scroll
-  finished = false; //boolean when end of database is reached
-  limit: number = 100;
-  offset: number = 100;
-  totalCount: number;  //number of times ->event scroll
-
 
   constructor(private marvelService: MarvelService) {
     this.characters = [];
@@ -40,6 +38,10 @@ export class CharactersComponent implements OnInit{
     this.getCharacters(this.offset);
   }
 
+  /*
+    Listener of Scroll action on window.
+    Each time when there is a event, we call to Marvel API
+   */
   onScroll(){
     console.log('scrolled!!');
     this.getCharacters(this.offset);
@@ -47,35 +49,31 @@ export class CharactersComponent implements OnInit{
 
   getCharacters(offset:number) {
 
-    this.loading = true;
+    this.loading = true; //Loader icon show
 
     if(this.totalCount === this.total )
     {
       this.loading = false;
       return;
     }
-    if (this.finished) return;
 
     this.marvelService
       .getCharacters(this.limit, offset)
         .subscribe( response => {
 
-          this.attributionText = response.attributionText;
+          this.attributionText = response.attributionText;  //Copyright MarvelAPI
           this.total = response.data.total;
 
           let lastCharacter: any;
+
           if(this.characters.length !=0)
-          {
-            lastCharacter = this.characters[this.characters.length-1];
-          }
+          { lastCharacter = this.characters[this.characters.length-1]; } //Take the last Character of call
 
           let newCharacters = [] = response.data.results;
           let isCharacterFound = false;
 
-          if(lastCharacter != undefined && lastCharacter.id === newCharacters[newCharacters.length - 1].id){
-            isCharacterFound = true;
-          }
-
+          if(lastCharacter != undefined && lastCharacter.id === newCharacters[newCharacters.length - 1].id)
+          { isCharacterFound = true; }  // The new call returns the same characters
 
           if(!isCharacterFound)
           {
@@ -86,7 +84,7 @@ export class CharactersComponent implements OnInit{
 
           console.log(this.characters[this.characters.length - 1]);
           console.log(this.characters.length);
-          this.loading = false;
+          this.loading = false; //Loader icon unshow
         });
   }
 
